@@ -42,6 +42,7 @@ jobs:
 
       - name: Delta Logolarini Yerlestir
         run: |
+          python3 -m pip install Pillow
           python3 - << 'EOF'
           import os
           from PIL import Image
@@ -64,7 +65,7 @@ jobs:
                   resized.save(os.path.join(target_dir, 'ic_launcher.png'))
                   resized.save(os.path.join(target_dir, 'ic_launcher_round.png'))
                   resized.save(os.path.join(target_dir, 'ic_launcher_foreground.png'))
-              print("Delta logolari basariyla uygulandi!")
+              print("Delta logolari basariyla yerlestirildi!")
           EOF
 
       - name: APK Derle
