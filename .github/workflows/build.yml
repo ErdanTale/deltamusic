@@ -12,6 +12,15 @@ jobs:
       - name: Kodlari Cek
         uses: actions/checkout@v4
 
+      - name: ZIP Dosyasini Ayikla
+        run: |
+          if ls *.zip 1> /dev/null 2>&1; then
+            unzip -q -o *.zip
+            if [ -d "deltamusic-app" ]; then
+              cp -r deltamusic-app/* .
+            fi
+          fi
+
       - name: Node.js Kurulumu
         uses: actions/setup-node@v4
         with:
